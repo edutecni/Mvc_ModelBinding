@@ -1,0 +1,32 @@
+﻿@* O trecho Mvc_ModelBinding.Models. já é importando no arqivo _ViewIports.cshtml, por isso só preciso passar o modelo *@
+@*@model Mvc_ModelBinding.Models.Cliente*@
+@model Cliente
+
+<h1>Dados do Cliente</h1>
+
+<hr />
+
+@Html.LabelFor(model => model.ClienteId, "Id")
+@*@Html.TextBoxFor(model => model.ClienteId)*@
+@Html.DisplayFor(model => model.ClienteId)
+<br />
+@Html.LabelFor(model => model.Nome)
+@*@Html.TextBoxFor(model => model.Nome)*@
+@Html.EditorFor(model => model.Nome)
+<br />
+@Html.LabelFor(model => model.Email)
+@Html.TextBoxFor(model => model.Email)
+<br />
+
+@*Id:
+    <label for="ClienteId">@Model.ClienteId</label><br />
+
+    Nome:
+    <label for="ClienteId">@Model.Nome</label><br />
+
+    Email:
+    <label for="ClienteId">@Model.Email</label><br />*@
+
+<hr />
+@Html.ActionLink("Retornar", "Index", "Cliente")
+@*<a href="/Cliente/Index">Retornar</a>*@
