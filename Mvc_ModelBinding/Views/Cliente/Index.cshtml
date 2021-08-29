@@ -1,10 +1,13 @@
 ﻿<h1>Cadastro de Cliente</h1>
 <hr />
-@* Html Helpers serve para escrever menos código, más no fim será gerado html padrão
-    para que o intelessence funcuione com os html helpers é necessário instalar o pacote
-    Razor Language Service via Nuguet Management*@
-@using (Html.BeginForm("Index", "Cliente", FormMethod.Post))
-{
+
+@* TagHelpers são tags executadas no Server ex: a tag form abaixo *@
+<form asp-controller="Cliente" asp-action="Index" method="post">
+    @* Html Helpers serve para escrever menos código, más no fim será gerado html padrão
+        para que o intelessence funcuione com os html helpers é necessário instalar o pacote
+        Razor Language Service via Nuguet Management*@
+    @*@using (Html.BeginForm("Index", "Cliente", FormMethod.Post))
+        {*@
     <div class="row">
         <div class="col-sm-1">@Html.Label("Id")</div>
         <div class="col-sm-11">@Html.TextBox("ClienteId")</div><br /><br />
@@ -22,21 +25,23 @@
         <div class="col-sm-2 text-left"><button type="submit">Salvar</button></div>
         <div class="col-sm-9"></div>
     </div>
-        }
+    @*}*@
+</form>
 
 
-        @* Nas Views pode-se utilizar Html Padrão ou HtmlHelpers*@
-        @*<form action="/Cliente/Index" method="post">
-            Id:
-            <input type="text" name="ClienteId" /><br /><br />
-            Nome:
-            <input type="text" name="Nome" /><br /><br />
-            Email:
-            <input type="text" name="Email" /><br /><br />
-            <button type="submit">Salvar</button>
-        </form>*@
 
-        @if (ViewBag.Erro != null)
-        {
-            <h2>@ViewBag.Erro</h2>
-        }
+@* Nas Views pode-se utilizar Html Padrão ou HtmlHelpers*@
+@*<form action="/Cliente/Index" method="post">
+        Id:
+        <input type="text" name="ClienteId" /><br /><br />
+        Nome:
+        <input type="text" name="Nome" /><br /><br />
+        Email:
+        <input type="text" name="Email" /><br /><br />
+        <button type="submit">Salvar</button>
+    </form>*@
+
+@if (ViewBag.Erro != null)
+{
+    <h2>@ViewBag.Erro</h2>
+}
